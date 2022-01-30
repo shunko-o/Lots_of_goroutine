@@ -3,23 +3,21 @@ package main
 import "fmt"
 
 
-func goroutine1(ch1 chan int){
+func goroutine1(ch1 chan<- int){
 	defer close(ch1)
 	for i:=0; i<10; i++ {
 		ch1 <- i
 	}
 }
 
-// firstは受信のチャネル、secondは送信のチャネル。以下のように明示的に定義することも出来る
-// first <-chan int, second chan<- int
-func goroutine2(ch1 chan int, ch2 chan int){
+func goroutine2(ch1 <-chan int, ch2 chan<- int){
 	defer close(ch2)
 	for i := range ch1 {
 		ch2 <- i * 10
 	}
 }
 
-func goroutine3(ch2 chan int, ch3 chan int){
+func goroutine3(ch2 <-chan int, ch3 chan<- int){
 	defer close(ch3)
 	for i := range ch2 {
 		ch3 <- i * 100
