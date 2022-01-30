@@ -1,1 +1,1 @@
-# Lots_of_goroutine
+色んなgoroutineのパターンを作成
