@@ -19,6 +19,7 @@ func goroutine2(ch chan string) {
 	}
 }
 
+// 永遠に渡し続ける
 func main(){
 	ch1 := make(chan string)
 	ch2 := make(chan string)

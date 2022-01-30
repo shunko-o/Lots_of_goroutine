@@ -29,6 +29,7 @@ func (cm *CountMap) Get(key string) int {
 	return cm.value[key]
 }
 
+// goroutine実行時mapに書き込む場合、mutexを使用する
 func main() {
 	cm := New()
 
